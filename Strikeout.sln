@@ -7,10 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Strikeout", "Strikeout\Stri
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A830399-E28A-4614-9C88-D655D89896AB}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{3A830399-E28A-4614-9C88-D655D89896AB}.All|Any CPU.Build.0 = Release|Any CPU
 		{3A830399-E28A-4614-9C88-D655D89896AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A830399-E28A-4614-9C88-D655D89896AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A830399-E28A-4614-9C88-D655D89896AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
