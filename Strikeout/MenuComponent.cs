@@ -66,7 +66,7 @@ namespace Strikeout
                         StartScene s1 = (StartScene)game.Components[0];
                         s1.hide();
 
-                        ActionScene g = (ActionScene)game.Components[2];
+                        ActionScene g = (ActionScene)game.Components[3];
                         g.show();
                         break;
                     case 1:
@@ -76,7 +76,14 @@ namespace Strikeout
                         HelpScene h = (HelpScene)game.Components[1];
                         h.show();
                         break;
-                    case 4:
+                    case 2:
+                        StartScene s3 = (StartScene)game.Components[0];
+                        s3.hide();
+
+                        AboutScene ab = (AboutScene)game.Components[2];
+                        ab.show();
+                        break;
+                    case 3:
                         Environment.Exit(1);
                         break;
 

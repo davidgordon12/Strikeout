@@ -15,9 +15,8 @@ namespace Strikeout
         private Game1 g;
         public MenuComponent Menu { get; set; }
         string[] menuItems = { "Start Game", 
-            "Help", 
-            "High Score", 
-            "Credit", 
+            "Help",
+            "About",
             "Quit" 
         };
 
