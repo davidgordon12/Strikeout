@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
+using System.Diagnostics;
 
 namespace Strikeout
 {
@@ -14,6 +16,7 @@ namespace Strikeout
         private Game game;
         private SpriteBatch spriteBatch;
         private SpriteFont regularFont;
+        public int elapsed { get; set; } = 0;
         private Color regularColor = Color.Black;
         public int score { get; set; }
         private Vector2 position;
@@ -39,6 +42,8 @@ namespace Strikeout
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
+            spriteBatch.DrawString(regularFont, $"Time: {elapsed}",
+                        new Vector2(20, 10), regularColor);
             spriteBatch.DrawString(regularFont, $"Score: {score}",
                         position, regularColor);
             spriteBatch.End();
