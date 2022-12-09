@@ -27,7 +27,7 @@
 /processorParam:TextureFormat=Compressed
 /build:fonts/regularFont.spritefont
 
-#begin images/Bat.png
+#begin images/about.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -37,7 +37,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:images/Bat.png
+/build:images/about.png
 
 #begin images/help.png
 /importer:TextureImporter
