@@ -9,16 +9,16 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Strikeout
 {
-    public class HelpScene : GameScene
+    public class AboutScene : GameScene
     {
         private SpriteBatch spriteBatch;
         private Game1 g;
         private Texture2D tex;
-        public HelpScene(Game game) : base(game)
+        public AboutScene(Game game) : base(game)
         {
             this.g = (Game1)game;
             this.spriteBatch = g._spriteBatch;
-            tex = game.Content.Load<Texture2D>("images/help");
+            tex = game.Content.Load<Texture2D>("images/about");
         }
 
         public override void Draw(GameTime gameTime)
@@ -33,11 +33,11 @@ namespace Strikeout
         {
             KeyboardState ks = Keyboard.GetState();
 
-            if (ks.IsKeyDown(Keys.Q))
+            if(ks.IsKeyDown(Keys.Q))
             {
                 // Hides the current scene 
-                HelpScene h = (HelpScene)g.Components[1];
-                h.hide();
+                AboutScene ab = (AboutScene)g.Components[2];
+                ab.hide();
 
                 // Pulls up the menu scene once more
                 StartScene s1 = (StartScene)g.Components[0];
