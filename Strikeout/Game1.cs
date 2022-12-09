@@ -13,6 +13,7 @@ namespace Strikeout
         private StartScene startScene;
         private HelpScene helpScene;
         private ActionScene actionScene;
+        private AboutScene aboutScene;
 
         public Game1()
         {
@@ -44,9 +45,18 @@ namespace Strikeout
             this.Components.Add(helpScene);
             //helpScene.show();
 
+            aboutScene = new AboutScene(this);
+            this.Components.Add(aboutScene);
+
             actionScene = new ActionScene(this);
             this.Components.Add(actionScene);
-            //actionScene.show();
+        }
+
+        public void RestartGame()
+        {
+            this.Components.Remove(actionScene);
+            actionScene = new ActionScene(this);
+            this.Components.Add(actionScene);
         }
 
         protected override void Update(GameTime gameTime)
@@ -61,7 +71,7 @@ namespace Strikeout
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.DarkGray);
+            GraphicsDevice.Clear(Color.AliceBlue);
 
             // TODO: Add your drawing code here
 
