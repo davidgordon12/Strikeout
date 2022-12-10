@@ -52,6 +52,11 @@ namespace Strikeout
             this.Components.Add(actionScene);
         }
 
+        /// <summary>
+        /// This must be called before showing the StartScene after each game ends,
+        /// otherwise enumertaion on each Component in the GameScene class will fail,
+        /// since the collection was modified and not restored in time
+        /// </summary>
         public void RestartGame()
         {
             this.Components.Remove(actionScene);
