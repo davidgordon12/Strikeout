@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection.Metadata;
 using System.Timers;
+using Animation;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace Strikeout
 {
     public class ActionScene : GameScene
     {
         private SpriteBatch spriteBatch;
+        private Texture2D tex;
         private Game1 g;
         private Target target;
         private ScoreComponent score;
@@ -19,6 +24,7 @@ namespace Strikeout
         private Timer timer;
         private Stopwatch stopwatch;
         private GameOverComponent go;
+        private SoundEffect boom1;
         public ActionScene(Game game) : base(game)
         {
             timer = new();
@@ -26,6 +32,9 @@ namespace Strikeout
 
             g = (Game1)game;
             this.spriteBatch = g._spriteBatch;
+
+            boom1 = g.Content.Load<SoundEffect>("sounds/boom1");
+            tex = g.Content.Load<Texture2D>("images/explosion");
 
             //instantiate all game components
             targetTex = game.Content.Load<Texture2D>("images/target");
@@ -60,6 +69,13 @@ namespace Strikeout
                 if (target.getBounds().Contains(ms.Position))
                 {
                     score.score++;
+
+                    Vector2 position = new Vector2(ms.Position.X-25, ms.Position.Y-25); // Center the explosion position
+
+                    boom1.Play(); // Play our sound effect each time a target is destroyed
+                    Explosion explosion = new Explosion(g, spriteBatch, tex, position, 3); // Play our explosion animation
+                                                                                           // each time a target is destroyed
+                    Components.Add(explosion);
 
                     // remove the old target
                     // and create a new one somewhere else
@@ -104,6 +120,7 @@ namespace Strikeout
             timer.Dispose();
 
             this.Components.Remove(target);
+            g.RestartGame(); // Calls the RestartGame method in Game1.cs
 
             MessageBox.Show("Strikeout", $"Time's up! You scored {score.score} points", new[] { "Ok" });
 
@@ -111,12 +128,9 @@ namespace Strikeout
             ActionScene a1 = (ActionScene)g.Components[3];
             a1.hide();
 
-            g.RestartGame(); // Calls the RestartGame method in Game1.cs
-
             // And finally, pulls up the menu scene once more
             StartScene s1 = (StartScene)g.Components[0];
             s1.show();
-
         }
     }
 }
